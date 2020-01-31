@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 
+           twoCell.html的优化版本
+         */
+        #left,
+        #right {
+          height: 300px;
+        }
+    
+        #left {
+          /* 定宽 */
+          width: 400px;
+          background-color: #c9394a;
+          /* 当前元素脱离文档流 */
+          float: left;
+          /* 
+            由于被第二个div覆盖，要设置显示层级
+            position比float层级更高 
+          */
+          position: relative;
+        }
+        /* 自适应*/
+        #right-fix{
+            /* 
+                浮动后的元素，因为脱离文档流，不再是父级元素宽的百分百
+                而是子级元素宽度之和
+             */
+            float: right;
+            /* 
+                右浮动导致宽度由子级元素决定，若加上width百分百，这样就由父级元素决定 
+                目前两个浮动元素，应该水平排列，但是现在还是垂直排列，由于第二div的宽度
+                太宽导致一行撑不下，导致换行
+            */
+            width: 100%;
+            /* 
+                不在一行是放不下，那么就把第二个div向左侧来400px，不过这样会把第一个div覆盖掉 
+            */
+            margin-left: -400px;
+            background-color: darkgoldenrod;
+        }
+
+        #right {
+            /* 这里面有问题，左侧div覆盖了右侧div的部分 */
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+    
+<body>
+    <div id="left"></div>
+    <div id="right-fix">
+        <div id="right"></div>
+    </div>
+    
+    <!-- 
+        解决第一种版本的问题：
+            × 定宽div的宽度与自适应的margin-left必须保持一致(高耦合)
+            √ 定宽浮动与自适应不浮动导致浏览器兼容性不好(低版本浏览器中间会有空白)
+            √ 右侧自适应div内部不可以存在有clear样式的元素,会导致左侧定宽区域浮动失效
+     -->
+</body>
+</html>

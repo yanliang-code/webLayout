@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>全屏布局</title>
+  <style>
+    html,
+    body {
+      /* 浏览器body元素默认8px外边距，通过样式取消此外边距 */
+      margin: 0;
+      /* 超出body区域的内容被隐藏，防止出现滚动条 */
+      overflow: hidden;
+    }
+    /* 
+      先弄行的效果，再弄列的效果
+    */
+    /* 顶部高度定高，宽度与浏览器窗口一直，位置固定到浏览器顶部 */
+    header {
+      height: 100px;
+      /* 开启固定定位，此元素就是相对于浏览器窗口布局 */
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      background-color: lightgray;
+    }
+
+    /* 由于顶部与底部都使用position脱离文档流，所以中部也是使用脱离文档流进行布局 */
+    .content {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 100px;
+      bottom: 100px;
+      /* 防止中间内容展示层，内容溢出div区域，加上滑动条 */
+      overflow: auto;
+
+      background-color: lightblue;
+    }
+
+    .content .left {
+      width: 300px;
+      height: 100%;
+      /* position脱离文档流，高度就根据父元素来决定，设置height属性有效 */
+      position: fixed;
+      left: 0;
+      top: 100px;
+      bottom: 100px;
+
+      background-color: lightcoral;
+    }
+
+    .content .right {
+      /* 没有脱离文档流，div的高度根据内容决定 */
+      height: 1000px;
+      margin-left: 300px;
+      background-color: greenyellow;
+    }
+
+    footer {
+      height: 100px;
+
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      background-color: lightslategray;
+    }
+  </style>
+</head>
+
+<body>
+  <header></header>
+  <div class="content">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  <footer></footer>
+</body>
+
+</html>

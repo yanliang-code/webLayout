@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #parent{
+            height: 300px;
+            background-color: brown;
+        }
+        #div2{
+            float: left;
+            background-color: darkgoldenrod;
+        }
+        /* #div3{
+
+        } */
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <!--
+            脱离文档流：float   position为relative、fixed  两种方式 
+            a、没有内容并且当前元素脱离文档流情况下，#div2元素不存在，高度与宽度都为0
+            b、有内容并且当前元素脱离文档流情况下，#div2元素存在，高度与宽度都内容决定
+
+            b情况下若改变高度与宽度，可以直接设置width与height属性，百分比按父元素宽高计算而得
+        -->
+        <div id="div2">222</div>
+        <!-- <div id="div3"></div> -->
+    </div>
+</body>
+</html>

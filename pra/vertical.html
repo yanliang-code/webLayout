@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .parent{
+            border: 1px solid red;
+            width: 200px;
+            height: 600px;
+            /* 
+                display属性：
+                    table：设置当前元素为<table>元素
+                    table-cell：设置当前元素为<td>元素(单元格)
+                
+                当使用table-cell时，父级元素就成为td单元格，子级元素就成为单元格中的内容
+                td可以通过样式设定它的内容是垂直居中
+             */
+            display: table-cell;
+            /* 
+                vertical-align属性：用于设置文本内容垂直方向的对齐方式（与text-align相似）
+                    top：顶部对齐
+                    middle：居中对齐
+                    bottom：底部对齐
+            */
+            vertical-align: middle;
+        }
+        .child{
+            background-color: red;
+            color: white;
+            width: 100px;
+            height: 100px;
+        
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">练习哈</div>
+    </div>
+    <!-- 
+        优点：
+            1浏览器兼容性比较好（都是CSS2中属性）
+
+        缺点：
+            vertical-align属性有继承性，导致父级元素中的文本也会居中显示
+            注意：若父级元素中有文本，没有解决方案，直接放弃这种写法
+     -->
+</body>
+</html>

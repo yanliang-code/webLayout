@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>圣杯布局</title>
+  <style>
+    #parent {
+      /* 
+        由于内部的div都设置了浮动，导致父级元素高度坍塌，这里设置固定高度，最简单low的方式
+       */
+      height: 300px;
+      /* 对应的是left元素的宽度 */
+      margin-left: 300px;
+      /* 对应的是right元素的宽度 */
+      margin-right: 300px;
+    }
+
+    #left,
+    #center,
+    #right {
+      height: 300px;
+
+      float: left;
+    }
+
+    #left,
+    #right {
+      width: 300px;
+    }
+
+    #left {
+      background-color: #c9394a;
+      /* 将当前元素从当前行，移动上一行同一个位置(相对于父元素移动) */
+      margin-left: -100%;
+      /* left  top 使用前提需要开启定位*/
+      position: relative;
+      /* 将当前元素移动到理想位置 */
+      left: -300px;
+    }
+
+    #center {
+      /* 
+        div没有设置浮动，默认是父级元素宽百分百
+        若设置浮动，就按照div的子级元素的宽度自动撑起
+        若没有内容，需要设置width属性
+          具体px：写多少是多少
+          百分比：按父级元素宽的百分比计算 
+      */
+      /* 为父级元素宽度的100% */
+      width: 100%;
+      background-color: green;
+    }
+
+    #right {
+      background-color: #cccccc;
+
+      margin-left: -300px;
+
+      position: relative;
+      right: -300px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    最外层parent的div，内部有center、left、right三个div
+    内部三个div都用左浮动布局，最外层parent的div使用外边距隔出左右两个div的距离
+    这样把左右div移动到最外层div外边距的位置，中间div就直接跟父元素的宽度走就行了
+    左边div怎么移到parent的左外边距位置呢？
+    margin-left:-100%;移到center最左侧，再通过相对parent定位，向左移动左侧div的宽度
+    右侧div同理
+   -->
+   <!-- 
+     解决经验：
+      如果当前HTML结构无法解决布局需求，可以尝试在当前结构外层再加一层父级结构(例如div)包裹元素
+      在其基础上加相应样式调试，不行可以再次外层加父级结构(例如div)包裹元素。此时，加的父级结构
+      没有任何意义，只是为了使其达到展示效果
+    -->
+    <!-- 
+      通过负值的margin-left可以让在同一父级元素下浮动的多个元素换行（不满足上述条件的不可以换行）
+
+     -->
+  <div id="parent">
+    <div id="center"></div>
+    <div id="left"></div>
+    <div id="right"></div>
+  </div>
+
+  <div>
+    <div style="background-color: chartreuse;width: 600px;height: 200px;display: inline-block;"></div>
+    <div style="background-color: cyan;width: 600px;height: 200px;"></div>
+  </div>
+</body>
+
+</html>

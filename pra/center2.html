@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .parent{
+            border: 1px solid red;
+            width: 300px;
+            height: 100px;
+        }
+        .child{
+            background-color: blue;
+            color: white;
+            width: 100px;
+            height: 100px;
+            /* display值为table和block都可以 */
+            display: table;
+            /* 行内元素不可以 */
+            /* display: inline; */
+            /* 
+                margin属性：外边距
+                一个值：上右下左
+                两个值：上下、左右
+                    第二个值是auto是表示根据浏览器自动分配
+                三个值：上、左右、下
+                四个值：上、右、下、左
+             */
+            margin: 0 auto;
+            /* float: left; */
+            /* position: fixed; */
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">练习哈</div>
+    </div>
+    <!-- 
+        优点：
+            只需要对子级元素设置就可以实现水平居中效果
+
+        缺点：
+            如果子级元素脱离文档流，导致margin属性的值无效
+            脱离文档流的方法：
+                1.浮动float
+                2.绝对定位position: absolute;
+                3.固定定位position: fixed;
+     -->
+</body>
+</html>

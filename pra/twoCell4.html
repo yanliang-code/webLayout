@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #parent{
+            /* 
+                table 默认会每列宽度均等，
+                若设定了宽，设定的就是设定的宽，其余的都分配给没有设定的列 
+            */
+            display: table;
+            /* 目前parent元素的宽度是内容的宽度，加上width属性跟随父元素 */
+            width: 100%;
+            /* 
+                table-layout
+                    automatic:根据内容决定td宽度
+                    fixed：根据td的width属性决定宽度
+             */
+            table-layout: fixed;
+        }
+        #left,
+        #right {
+          height: 300px;
+          display: table-cell;
+        }
+        #left {
+          /* 定宽 */
+          width: 400px;
+          background-color: #c9394a;
+        }
+    
+        #right {
+          background-color: #cccccc;
+        }
+    </style>
+</head>
+    
+<body>
+    <div id="parent">
+        <div id="left"></div>
+        <div id="right"></div>
+    </div>
+    <!-- 
+        优点:
+            浏览器兼容性比较好
+        缺点:
+            将所有元素的display属性设置为table相关值，受到相应制约
+     -->
+</body>
+</html>

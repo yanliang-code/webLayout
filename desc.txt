@@ -1,0 +1,37 @@
+居中布局
+
+    1.水平居中 center1.html
+
+    2.垂直居中 vertical.html
+
+    3.居中（水平 + 垂直） verticalCenter.html
+
+多列布局
+
+    1.两列布局  twoCell.html
+        一列定宽，一列自适应
+
+    3.三列布局  threeCell.html
+        两列定宽，一列自适应
+        两列分两种情况，挨着与不挨着
+
+    4.圣杯与双飞翼布局
+        定宽、自适应、定宽
+    
+    5.等分布局
+        一行多个列，每个列等宽
+
+    6.等高布局
+        一行多个列，每个列等高
+
+    7.css3多列布局（新增属性）
+
+全屏布局
+
+此系列没有涉及的CSS布局
+
+    网格布局（boostrap响应式布局）
+
+    弹性盒子布局（大多数是CSS3属性，兼容性不好） 
+
+    https://github.com/yanliang-code/-.git

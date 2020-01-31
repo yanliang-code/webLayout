@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .parent{
+            border: 1px solid red;
+            width: 300px;
+            height: 100px;
+            /* position: static;默认值，不开启定位 */
+            /* absolute relative fixed 都有开启定位的功效 */
+            position: relative;
+        }
+        .child{
+            background-color: red;
+            color: white;
+            width: 100px;
+            height: 100px;
+            /* 
+                当前元素设置为绝对定位后：
+                    父级元素没有开启定位的话，当前元素相对于页面定位的
+                    父级元素开启了定位的话，当前元素相对于父级元素定位的
+                由于当前元素想相对于父元素居中布局，所以必须在父级元素上设置定位
+             */
+            position: absolute;
+            /* 这个left效果：子元素的左侧是父元素宽度一半的距离*/
+            left: 50%;
+            /* 平移子元素宽度的50%  负：左  正：右 */
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">练习哈</div>
+    </div>
+    <!-- 
+        优点：
+            父级元素是否脱离文档流，不影响子级元素水平居中的效果
+
+        缺点：
+            transform属性时css3中新增属性，浏览器支持情况不好
+     -->
+</body>
+</html>

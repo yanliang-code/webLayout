@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .parent{
+            border: 1px solid red;
+            width: 800px;
+            height: 600px;
+            position: relative;
+        }
+        .child{
+            background-color: red;
+            color: white;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            /* 上左侧距离为父元素宽度的一半 */
+            top: 50%;
+            left: 50%;
+            /* 子元素向上、向左平移本身宽度的一半 */
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">练习哈</div>
+    </div>
+    <!-- 
+        优点：
+            1浏览器兼容性比较好（都是CSS2中属性）
+
+        缺点：
+            为了实现子元素的水平垂直居中，在父元素中写了css样式
+            <td>中写<table>，不符合html语义，上述代码也进行优化，把子级元素的display设置为block
+    -->
+</body>
+</html>

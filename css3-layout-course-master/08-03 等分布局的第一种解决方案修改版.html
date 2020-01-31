@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>等分布局的第一种解决方法</title>
+  <style>
+    .parent-fix {
+      /*
+        解决元素内都是浮动元素，导致高度坍塌
+        解决内容溢出问题
+      */
+      overflow: hidden;
+    }
+
+    #parent {
+      /* 解决元素内都是浮动元素，导致高度坍塌 */
+      height: 300px;
+      /* 四个列应该有三个间隙，解决第一div前面的间隙 */
+      /* 左移10px后，此元素的宽度变宽10px，内部会按照百分比重新计算宽度 */ 
+      margin-left: -10px;
+    }
+
+    .col1,
+    .col2,
+    .col3,
+    .col4 {
+      height: 300px;
+      width: 25%;
+      float: left;
+
+      box-sizing: border-box;
+      /* 加的是内边距，所以只有在内部的元素加背景色才能看出效果，不要将背景色加在此层元素上 */
+      padding-left: 10px;
+    }
+
+    .inner {
+      height: 300px;
+    }
+
+    .col1 .inner {
+      background-color: hotpink;
+    }
+
+    .col2 .inner {
+      background-color: lightblue;
+    }
+
+    .col3 .inner {
+      background-color: green;
+    }
+
+    .col4 .inner {
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    col使用border-box模式，固定每列是否加内边距以及边框整体宽度不变
+    只会将内容宽度变小，左边距加10px，每个col都有左边距，通过col外层
+    的div设置负值margin-left，抵消第一个col的左边距
+  -->
+  <!-- 
+    box-sizing默认content-box：设置padding与border 向外撑
+    box-sizing改为border-box：设置padding与border 向内缩
+   -->
+  <div class="parent-fix">
+    <!-- 作为父级容器 -->
+    <div id="parent">
+      <div class="col1">
+        <div class="inner"></div>
+      </div>
+      <div class="col2">
+        <div class="inner"></div>
+      </div>
+      <div class="col3">
+        <div class="inner"></div>
+      </div>
+      <div class="col4">
+        <div class="inner"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

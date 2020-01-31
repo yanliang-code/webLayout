@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 
+            div块级元素，自动换行，第一个div宽度300，第二个宽度是父级元素宽度的百分百
+            左侧div加上左浮动，左侧div会脱离文档流，第二个div会向上补位，第一个div会覆盖第二个div
+            右侧div加上左边距，把左侧div让出它本身的距离
+         */
+        #left,
+        #right {
+          height: 300px;
+        }
+    
+        #left {
+          /* 定宽 */
+          width: 400px;
+          background-color: #c9394a;
+          /* 当前元素脱离文档流 */
+          float: left;
+        }
+    
+        #right {
+          background-color: #cccccc;
+          margin-left: 400px;
+        }
+    </style>
+</head>
+    
+<body>
+    <div id="left"></div>
+    <div id="right"></div>
+    <!-- 
+        优点:
+            实现方式简单(一般实现方式越简单,后续开发的限制越多)
+
+        缺点:
+            定宽div的宽度与自适应的margin-left必须保持一致(高耦合)
+            定宽浮动与自适应不浮动导致浏览器兼容性不好(低版本浏览器中间会有空白)
+            右侧自适应div内部不可以存在有clear样式的元素,会导致左侧定宽区域浮动失效
+     -->
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS3的多列布局</title>
+  <style>
+    #parent,
+    #parent2,
+    #parent3 {
+      /* 
+      column-count: 4; 列的个数
+        auto与number两种情况供选择，默认auto，列的数量由CSS属性决定 
+      column-width: 300px; 每列的宽度
+        auto与length两种情况供选择，默认auto，列的数量由CSS属性决定，length可以使用百分比和固定px
+      */
+
+      columns: 4 300px;
+      /* 
+        设置列与列之间的间距
+          normal与length两种情况供选择，默认normal，具体为l em，length百分比与具体px两种情况
+      */
+      column-gap: 20px;
+
+      /* column-rule-width: 5px;
+      column-rule-color: tomato;
+      column-rule-style: double; */
+      /* 列间隙的边框宽度、边框颜色、边框样式 */
+      column-rule: 5px tomato double;
+    }
+
+    .col1,
+    .col2,
+    .col3,
+    .col4,
+    .col5 {
+      height: 300px;
+    }
+
+    .col1,
+    .col6 {
+      background-color: hotpink;
+    }
+
+    .col2,
+    .col7 {
+      background-color: lightblue;
+    }
+
+    .col3.col8 {
+      background-color: green;
+    }
+
+    .col4,
+    .col9 {
+      background-color: yellow;
+    }
+
+    .col5 {
+      background-color: tomato;
+      /* 
+        定义一个列元素是否跨列
+          none：表示元素不跨列；all：表示元素跨所有列
+          若横跨所有列，那么父元素设置指定的列数,也是无效的
+      */
+      column-span: all;
+    }
+
+    .col6,
+    .col7,
+    .col8,
+    .col9 {
+      /* 
+        定义列的高度是有内容决定,还是统一高度
+        auto:默认值，列的高度由内容决定；balance:列高度由内容最多的那列高度决定（等高布局效果）
+        由于CSS3属性，目前浏览器兼容性不好，不建议使用(目前只有IEll 有此效果)
+      */
+      column-fill: balance;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 作为父级容器 -->
+  <div id="parent">
+    <div class="col1"></div>
+    <div class="col2"></div>
+    <div class="col3"></div>
+    <div class="col4"></div>
+  </div>
+  <div id="parent2">
+    <div class="col5"></div>
+  </div>
+  <div id="parent3">
+    <div class="col6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum possimus aliquid nostrum provident
+      est esse necessitatibus mollitia error, tempore voluptate nobis odio alias, ab animi reprehenderit repellat
+      perferendis voluptas rerum!</div>
+    <div class="col7">Lorem ipsum dolor sit, amet consectetur adipisicing elit. A, quibusdam vel! Provident consequatur
+      voluptates quibusdam consectetur architecto! Ut eaque aspernatur quibusdam incidunt nobis ipsam quidem, quod
+      ullam, velit officia necessitatibus!
+    </div>
+    <div class="col8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dicta officia porro error
+      suscipit. Nostrum, deleniti laborum. Sed odit, nemo, ducimus dolores rem reprehenderit soluta ipsam nesciunt id
+      unde accusamus.</div>
+    <div class="col9">imooc</div>
+  </div>
+</body>
+
+</html>

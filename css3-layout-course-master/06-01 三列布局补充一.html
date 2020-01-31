@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三列布局补充一</title>
+  <style>
+    #left,
+    #center,
+    #right {
+      height: 300px;
+    }
+
+    #left,
+    #right {
+      width: 300px;
+    }
+
+    #left {
+      background-color: #c9394a;
+
+      float: left;
+    }
+
+    #center {
+      background-color: green;
+
+      margin-left: 300px;
+
+      margin-right: 300px;
+    }
+
+    #right {
+      background-color: #cccccc;
+
+      float: right;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 左右div固定值并左右分别浮动，中间设置相应外边距 -->
+  <!-- 
+     定宽、自适应、定宽
+     拆解为定宽、自适应与自适应、定宽 两两解决
+     问题一：div中存在两个div，第一个div没有浮动，第二浮动，浮动的元素不允许超过第一个元素
+             主要由于div是块级元素，没有浮动，前后自带换行符光圈
+     解决方案：两个有浮动效果的放在最前面，最后一个是不浮动的div
+   -->
+   <!-- 
+      缺点：搜索引擎无法最优匹配
+      科普：
+        搜索引擎如何匹配关键字与结果，通过解析html来匹配，所以center最主要的信息放在最后被
+        搜索引擎解析，那么你这个页面的在结果集中绝对不是最靠前的，最优的匹配方案是将主要信息
+        center部分放到最前面让其解析
+    -->
+  <div id="left"></div>
+  <div id="right"></div>
+  <div id="center"></div>
+</body>
+
+</html>

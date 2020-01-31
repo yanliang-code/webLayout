@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .parent{
+            border: 1px solid red;
+            width: 300px;
+            height: 100px;
+            /* 
+               text-align 为文本内容设置对齐方式
+             */
+            text-align: center;
+        }
+        .child{
+            background-color: red;
+            color: white;
+            width: 100px;
+            height: 100px;
+            /* 
+                block:块级元素（width与height设置属性有效）
+                inline:内联元素（text-align属性对其有效）
+                inline-block：行内块级元素（块级 + 内联两种特性都有）
+             */
+            display: inline-block;
+            /* 
+                缺点：width与height设置无效果，只会根据内容大小来显示，无内容，此div消失
+             */
+            /* display: inline; */
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">练习哈</div>
+    </div>
+    <!-- 
+        优点：
+            浏览器兼容性比较好（都是CSS2）
+
+        缺点：
+            text-align属性有继承性，导致子级元素中的文本也会居中显示
+            解决方案：直接在子级元素重新覆盖设置text-align
+     -->
+</body>
+</html>
